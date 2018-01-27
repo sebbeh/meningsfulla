@@ -66,8 +66,8 @@
             <div class="h-100">
                 <div class="container h-100 w-100">
                     <div class="row justify-content-center align-items-center h-100 w-100">
-                        <p><a href="/om"><img src="img/logo.svg" width="100%"><br />
-                        Vi stödjer Barncancerfonden - läs mer här</a></p>
+                        <p><a href="/om"><img src="img/logo.svg" width="100%"></a><br />
+                        <a href="/bidra">Vi stödjer Barncancerfonden - ge ditt bidrag här</a></p>
                     </div>
                 </div>
             </div>
