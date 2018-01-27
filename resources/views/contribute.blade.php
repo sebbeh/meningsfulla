@@ -33,8 +33,8 @@
     @section('content')
             <div class="container" style="padding-top: 58px;">
                 <div class="row" style="margin-top: 1em;">
-                    <div class="col-2"><img src="img/collaborations/bcf.svg" width="160"></div>
-                    <div class="col-7">
+                    <div class="col-sm-12 col-md-2"><img src="img/collaborations/bcf.svg" width="160"></div>
+                    <div class="col-sm-12 col-md-7">
                         <h1>Ge ditt bidrag</h1>
                         <p>Här kan du bidra till kampen mot barncancer genom att swisha 149kr till <strong>1234965679</strong>. Givetvis går hela beloppet till Barncancerfonden.</p>
                         <p>Som tack för varje bidrag på 149kr skickar vi dig ett 2 pack eleganta och meningsfulla strumpor, som alltid kommer kännas extra viktiga att bära.</p>
@@ -49,27 +49,27 @@
                         <form action="/bidra" method="POST">
                             {{ csrf_field() }}
                             <div class="form-row">
-                                <div class="form-group col-6">
+                                <div class="form-group col-sm-12 col-md-6">
                                     <label for="firstname">Förnamn</label>
                                     <input type="text" name="firstname" id="firstname" placeholder="Förnamn" class="form-control">
                                 </div>
-                                <div class="form-group col-6">
+                                <div class="form-group col-sm-12 col-md-6">
                                     <label for="lastname">Efternamn</label>
                                     <input type="text" name="lastname" id="lastname" placeholder="Efternamn" class="form-control">
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-12">
+                                <div class="form-group col-sm-12 col-md-12">
                                     <label for="address">Adress</label>
                                     <input type="text" name="address" id="address" placeholder="Adress" class="form-control">
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-4">
+                                <div class="form-group col-sm-12 col-md-4">
                                     <label for="zipcode">Postnummer</label>
                                     <input type="text" name="zipcode" id="zipcode" placeholder="Postnr" class="form-control">
                                 </div>
-                                <div class="form-group col">
+                                <div class="form-group col-sm-12 col-md">
                                     <label for="city">Ort</label>
                                     <input type="text" name="city" id="city" placeholder="Ort" class="form-control">
                                 </div>
@@ -84,10 +84,10 @@
                                 <div class="col">Välj antal per storlek:</div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-5">
+                                <div class="form-group  col-sm-12 col-md-5">
                                   <label for="count37">Antal (storlek 37-40):</label>
                                 </div>
-                                <div class="form-group col-3">
+                                <div class="form-group  col-sm-12 col-md-3">
                                   <select name="count37" class="form-control" id="count37">
                                       <option value="0" selected>0</option>
                                       <option value="1">1</option>
@@ -104,10 +104,10 @@
                                 </div>
                               </div>
                               <div class="form-row">
-                                <div class="form-group col-5">
+                                <div class="form-group  col-sm-12 col-md-5">
                                   <label for="count40">Antal (storlek 40-45):</label>
                                 </div>
-                                <div class="form-group col-3">
+                                <div class="form-group  col-sm-12 col-md-3">
                                   <select name="count40" class="form-control" id="count40">
                                       <option value="0" selected>0</option>
                                       <option value="1">1</option>
@@ -124,13 +124,13 @@
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-6">
+                                <div class="form-group  col-sm-12 col-md-6">
                                     <button type="submit" class="btn btn-light">Skicka beställning</button>
                                 </div>
                             </div>
                           </form>
                     </div>
-                    <div class="col-3"><img src="img/swish.png" width="200"></div>
+                    <div class="col-sm-12 col-md-3"><img src="img/swish.png" width="200"></div>
                 </div>
             </div>
     @endsection
