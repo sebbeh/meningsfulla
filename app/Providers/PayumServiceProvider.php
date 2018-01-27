@@ -32,9 +32,9 @@ class PayumServiceProvider extends ServiceProvider
             ->addDefaultStorages()
 
             ->addGateway('klarna', [
-                 'factory' => 'klarna_checkout',
-                 'merchant_id' => 'PK00614_a7fbe3f70e2b',
-                 'secret' => 'sEn4ax0VuAVIyEfl'
+                'factory' => 'klarna_checkout',
+                'merchant_id' => 'PK00614_a7fbe3f70e2b',
+                'secret' => 'sEn4ax0VuAVIyEfl'
             ]);
         });
     }

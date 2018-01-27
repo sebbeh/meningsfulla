@@ -163,11 +163,11 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        Payum\LaravelPackage\PayumServiceProvider::class,
 
         /*
          * Package Service Providers...
          */
+         Payum\LaravelPackage\PayumServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -177,6 +177,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\AgentServiceProvider::class,
 
     ],
 

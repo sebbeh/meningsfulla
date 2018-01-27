@@ -14,3 +14,19 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/om', function () {
+    return view('about');
+});
+
+Route::get('/tjana-pengar', function () {
+    return view('earn');
+});
+
+Route::get('/hockeyns-dag', function () {
+    return view('hockeyns-dag');
+});
+
+Route::get('/samarbetspartners', function () {
+    return view('collaborations');
+});
