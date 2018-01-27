@@ -35,5 +35,5 @@ Route::get('/samarbetspartners', function () {
 });
 
 Route::post('/apply', function (Request $request) {
-    Mail::to('mp@meningsfulla.se;cc@meningsfulla.se')->send(new AppliedInterest($request->input('email')));
+    Mail::to(['mp@meningsfulla.se','cc@meningsfulla.se'])->send(new AppliedInterest($request->input('email')));
 });
