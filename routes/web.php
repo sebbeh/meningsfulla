@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\AppliedInterest;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,4 +32,8 @@ Route::get('/hockeyns-dag', function () {
 
 Route::get('/samarbetspartners', function () {
     return view('collaborations');
+});
+
+Route::post('/apply', function (Request $request) {
+    Mail::to('mp@meningsfulla.se;cc@meningsfulla.se')->send(new AppliedInterest($request->input('email')));
 });

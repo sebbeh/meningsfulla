@@ -54,15 +54,17 @@
                           </li>
                         </ul>
                         <p>Lämna din intresseanmälan här så kontaktar vi er och berättar mer.<br>
-                            <form>
+                            <form action="/apply" method="POST">
+                                {{ csrf_field() }}
                                 <div class="form-row">
                                   <div class="col-5">
-                                    <input type="email" class="form-control" placeholder="E-postadress">
+                                    <input type="email" name="email" class="form-control" placeholder="E-postadress">
                                   </div>
                                   <div class="col">
                                     <button type="submit" class="btn btn-light">Anmäl</button>
                                   </div>
                                 </div>
+                            </form>
                         </p>
                     </div>
                 </div>
