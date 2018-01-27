@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\AppliedInterest;
+use App\Mail\Contribute;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,6 +39,13 @@ Route::get('/bidra', function () {
     return view('contribute');
 });
 
+Route::post('/bidra', function (Request $request) {
+    Mail::to($request->input('email'))->send(new Contribute($request));
+    Mail::to('order@meningsfulla.se')->send(new Contribute($request));
+    return back()->with('status','Tack för din beställning! Glöm inte att även swisha ditt bidrag.');
+});
+
 Route::post('/apply', function (Request $request) {
     Mail::to(['mp@meningsfulla.se','cc@meningsfulla.se'])->send(new AppliedInterest($request->input('email')));
+    return back()->with('status','Din intresseanmälan har registrerats och du kommer bli meddelad så fort ny information kommer.');
 });

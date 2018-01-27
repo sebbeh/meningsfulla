@@ -53,6 +53,11 @@
                               </ul>
                           </li>
                         </ul>
+                        @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                        @endif
                         <p>Lämna din intresseanmälan här så kontaktar vi er och berättar mer.<br>
                             <form action="/apply" method="POST">
                                 {{ csrf_field() }}

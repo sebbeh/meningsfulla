@@ -41,7 +41,7 @@
                         <h4>Välgörenhetsorganisationer</h4>
                         <p><a href="http://www.barncancerfonden.se"><img src="img/collaborations/bcf.svg" width="100"></a></p>
                         <h4>Företag</h4>
-                        <p><a href="https://www.wundersocks.com">MM socks</a></p>
+                        <p><a href="http://hmymarvellous.com"><img src="img/collaborations/mmsocks.png" width="200"></a></p>
                         <p><a href="http://www.fogma.nu"><img src="img/collaborations/fogma.png" width="100"></a></p>
                     </div>
                 </div>
