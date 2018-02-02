@@ -4,6 +4,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\AppliedInterest;
 use App\Mail\Contribute;
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Client;
+use App\Http\Controllers\OrderController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,11 +43,20 @@ Route::get('/bidra', function () {
     return view('contribute');
 });
 
-Route::post('/bidra', function (Request $request) {
-    Mail::to($request->input('email'))->send(new Contribute($request));
-    Mail::to('kundtjanst@meningsfulla.se')->send(new Contribute($request));
-    return back()->with('status','Tack för din beställning! Glöm inte att även swisha ditt bidrag.');
+Route::get('/awaiting-payment/{id}', function($id) {
+    return view('awaiting-payment', ['id' => $id]);
 });
+
+Route::get('/thank-you/{id}', function($id) {
+    $order = App\Order::where('ordernumber', $id)->get();
+    return view('thank-you', ['order' => $order]);
+});
+
+Route::get('/get-status/{id}', function($id) {
+    return App\Order::where('ordernumber', $id)->get()->toJson();
+});
+
+Route::post('/bidra','OrderController@create');
 
 Route::post('/apply', function (Request $request) {
     Mail::to('kundtjanst@meningsfulla.se')->send(new AppliedInterest($request->input('email')));

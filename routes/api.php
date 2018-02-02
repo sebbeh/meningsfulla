@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use App\Order;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +19,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//Route is blocked by NGINX server for all IPs except 194.242.111.220
 Route::prefix('v1')->group(function () {
     Route::prefix('swishcb')->group(function () {
-        Route::get('paymentrequests/{id}', function() {
-            return 'Hi';
+        Route::post('paymentrequests/{id}', function(Request $request,$id) {
+            $order = Order::where('ordernumber',$id)->first();
+            $order->status = $request->status;
+            $order->swish_response = $request->all();
+            $order->save();
         });
     });
 });

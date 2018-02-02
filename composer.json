@@ -6,10 +6,12 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
+        "doctrine/dbal": "^2.6",
         "fideloper/proxy": "~3.3",
         "jenssegers/agent": "^2.6",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
+        "laravelista/ekko": "^1.5",
         "payum/klarna-checkout": "^1.4",
         "payum/payum-laravel-package": "^1.0",
         "php-http/guzzle6-adapter": "^1.1",
