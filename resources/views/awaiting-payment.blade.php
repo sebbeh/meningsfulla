@@ -16,11 +16,11 @@
 @if(session('token') != '' && session('callbackurl') != '')
 @if($agent->browser() == 'Chrome' && $agent->version($agent->browser()) > 24) {
 <script>
-  window.open = 'intent://view/#Intent;swish;se.bankgirot.swish;{{ session('token') }};{{ $agent->browser() }};{{ session('callbackurl') }};' + navigator.userAgent + ';end';
+  location.href = 'intent://view/#Intent;swish;se.bankgirot.swish;{{ session('token') }};{{ $agent->browser() }};{{ session('callbackurl') }};' + navigator.userAgent + ';end';
 </script>
 @else
 <script>
-  window.open = 'swish://paymentrequest?token={{ session('token') }}&callbackurl={{ session('callbackurl') }}';
+  location.href = 'swish://paymentrequest?token={{ session('token') }}&callbackurl={{ session('callbackurl') }}';
 </script>
 @endif
 @endif
