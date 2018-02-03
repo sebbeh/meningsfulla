@@ -24,10 +24,10 @@ Route::prefix('v1')->group(function () {
     Route::prefix('swishcb')->group(function () {
         Route::post('paymentrequests/{id}', function(Request $request, $id) {
             Log::info('Received payment status.', ['request' => $request->getContent()]);
-            /*$order = Order::where('ordernumber', $id)->first();
+            $order = Order::where('ordernumber', $id)->first();
             $order->status = $request->input('status');
-            $order->swish_response = $request->all();
-            $order->save();*/
+            $order->swish_response = $request->getContent();
+            $order->save();
         });
     });
 });
