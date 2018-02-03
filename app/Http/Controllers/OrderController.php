@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 use App\Order;
+use App\Mail\Contribute;
 
 class OrderController extends Controller
 {
