@@ -24,6 +24,7 @@
 </script>
 @endif
 @endif
+@if(!$agent->isPhone())
 <script>
 // The polling function
 (function poll() {
@@ -43,4 +44,5 @@
   }, 1500);
 })();
 </script>
+@endif
 @endpush

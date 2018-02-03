@@ -23,7 +23,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::prefix('v1')->group(function () {
     Route::prefix('swishcb')->group(function () {
         Route::post('paymentrequests/{id}', function(Request $request,$id) {
-            $order = Order::where('ordernumber',$id)->first();
+            Log::info('Received payment status.', $request);
+            $order = Order::where('ordernumber', $id)->first();
             $order->status = $request->status;
             $order->swish_response = $request->all();
             $order->save();
