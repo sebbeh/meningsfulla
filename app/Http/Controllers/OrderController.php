@@ -51,7 +51,7 @@ class OrderController extends Controller
 
         $client = new Client(); //GuzzleHttp\Client
         $token = "";
-        if($request->input('isphone') === 'false') {
+        if($request->input('isphone') === 'true') {
           $result = $client->post('https://swicpc.bankgirot.se/swish-cpcapi/api/v1/paymentrequests', [
             'json' => [
                 'payeePaymentReference' => $payeePaymentReference,
@@ -84,9 +84,9 @@ class OrderController extends Controller
           $token = $result->getHeader('PaymentRequestToken')[0];
         }
 
-        Mail::to($request->input('email'))->send(new Contribute($request));
-        Mail::to('kundtjanst@meningsfulla.se')->send(new Contribute($request));
-        return redirect(url('/awaiting-payment/' . $payeePaymentReference))->with(['token' => $token,'callbackurl' => url('/thank-you/' . $payeePaymentReference)]);
+        //Mail::to($request->input('email'))->send(new Contribute($request));
+        //Mail::to('kundtjanst@meningsfulla.se')->send(new Contribute($request));
+        return redirect(url('/awaiting-payment/' . $payeePaymentReference))->with(['token' => $token,'callbackurl' => $callbackUrl)]);
     }
 
     public function read(Order $order) {
