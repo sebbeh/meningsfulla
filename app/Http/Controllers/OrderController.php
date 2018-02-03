@@ -51,7 +51,7 @@ class OrderController extends Controller
 
         $client = new Client(); //GuzzleHttp\Client
         $token = "";
-        if($request->input('isphone') === 'true') {
+        if($request->input('isphone') === 'false') {
           $result = $client->post('https://swicpc.bankgirot.se/swish-cpcapi/api/v1/paymentrequests', [
             'json' => [
                 'payeePaymentReference' => $payeePaymentReference,
