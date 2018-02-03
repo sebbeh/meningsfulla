@@ -16,18 +16,11 @@
 @if(session('token') != '' && session('callbackurl') != '')
 @if($agent->browser() == 'Chrome' && $agent->version($agent->browser()) > 24) {
 <script>
-  var url = 'intent://view/#Intent;swish;<package_name>;{{ session('token') }};{{ $agent->browser() }};{{ session('callbackurl') }};' + navigator.userAgent + ';end';
-  var iframe = document.createElement('iframe');
-  iframe.style.display = "none";
-  iframe.src = url;
-  document.body.appendChild(iframe);
+  window.open = 'intent://view/#Intent;swish;<package_name>;{{ session('token') }};{{ $agent->browser() }};{{ session('callbackurl') }};' + navigator.userAgent + ';end';
 </script>
 @else
 <script>
-  var iframe = document.createElement('iframe');
-  iframe.style.display = "none";
-  iframe.src = 'swish://paymentrequest?token={{ session('token') }}&callbackurl={{ session('callbackurl') }}';
-  document.body.appendChild(iframe);
+  window.open = 'swish://paymentrequest?token={{ session('token') }}&callbackurl={{ session('callbackurl') }}';
 </script>
 @endif
 @endif
