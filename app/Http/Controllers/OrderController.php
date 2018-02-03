@@ -48,7 +48,7 @@ class OrderController extends Controller
         }
 
         $payeeAlias = env('SWISH_NUMBER');
-        $callbackUrl = "https://meningsfulla.se/api/v1/swishcb/paymentrequests";
+        $callbackUrl = "https://meningsfulla.se/api/v1/swishcb/paymentrequests/" . $payeePaymentReference;
         $currency = "SEK";
         $message = "Gåva Barncancerfonden";
 
