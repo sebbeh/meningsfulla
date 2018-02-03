@@ -22,12 +22,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //Route is blocked by NGINX server for all IPs except 194.242.111.220
 Route::prefix('v1')->group(function () {
     Route::prefix('swishcb')->group(function () {
-        Route::post('paymentrequests/{id}', function(Request $request,$id) {
-            Log::info('Received payment status.', $request);
-            $order = Order::where('ordernumber', $id)->first();
-            $order->status = $request->status;
+        Route::post('paymentrequests/{id}', function(Request $request, $id) {
+            Log::info('Received payment status.', ['request' => $request->getContent()]);
+            /*$order = Order::where('ordernumber', $id)->first();
+            $order->status = $request->input('status');
             $order->swish_response = $request->all();
-            $order->save();
+            $order->save();*/
         });
     });
 });
