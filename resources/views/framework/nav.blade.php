@@ -1,5 +1,5 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/"><img src="/img/mf-logo-m-color.svg" width="30" height="30"> <span class="d-lg-none comfortaa">meningsfulla</span></a>
+    <a class="navbar-brand" href="/"><img src="/img/mfse-logo-color-dark.svg" height="30"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>

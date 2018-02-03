@@ -1,8 +1,12 @@
-<h1>Tack för din beställning</h1>
-<p>Vi har tagit emot din beställning och kommer att skicka ut den så fort vi bekräftat att du swishat in {{ (149*$request->count37)+(149*$request->count40) }}kr till <b>1234965679</b>.</p>
+<h1>Tack för din gåva</h1>
+<p>Vi har tagit emot din gåva och kommer att skicka ut den så fort som möjlig.</p>
 <p>Du har beställt:</p>
-<p>{{ $request->count37 }}st strumpor i storlek 37-40.</p>
-<p>{{ $request->count40 }}st strumpor i storlek 40-45.</p>
+@if($request->count37 > 0)
+<p>{{ $request->count37 }} paket á 2 par strumpor i storlek 37-40.</p>
+@endif
+@if($request->count40 > 0)
+<p>{{ $request->count40 }} paket á 2 par strumpor i storlek 40-45.</p>
+@endif
 <p>Adress:</p>
 <p>{{ $request->firstname }} {{ $request->lastname }}<br>
    {{ $request->address }}<br>

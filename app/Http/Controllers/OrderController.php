@@ -87,8 +87,8 @@ class OrderController extends Controller
           $token = $result->getHeader('PaymentRequestToken')[0];
         }
 
-        //Mail::to($request->input('email'))->send(new Contribute($request));
-        //Mail::to('kundtjanst@meningsfulla.se')->send(new Contribute($request));
+        Mail::to($request->input('email'))->send(new Contribute($request));
+        Mail::to('kundtjanst@meningsfulla.se')->send(new Contribute($request));
         return redirect(url('/awaiting-payment/' . $payeePaymentReference))->with(['token' => $token,'callbackurl' => urlencode(url('/thank-you/' . $payeePaymentReference))]);
     }
 

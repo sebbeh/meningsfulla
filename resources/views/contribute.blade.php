@@ -73,7 +73,7 @@
         <input type="hidden" name="isphone" value="{{ $agent->isPhone() ? 'true' : 'false' }}">
         <div class="form-row">
           <div class="form-group col-sm-12 col-md-12">
-            <label for="phone">Mobiltelefonnummer</label>
+            <label for="phone">Mobiltelefonnummer<small>*</small></label>
             <input type="text" name="phone" id="phone" placeholder="Mobiltelefonnummer" class="form-control" required>
             <div class="invalid-feedback">
               Du måste fylla i ditt mobiltelefonnummer.
@@ -82,14 +82,14 @@
         </div>
         <div class="form-row">
           <div class="form-group col-sm-12 col-md-6">
-            <label for="firstname">Förnamn*</label>
+            <label for="firstname">Förnamn<small>*</small></label>
             <input type="text" name="firstname" id="firstname" placeholder="Förnamn" class="form-control" required>
             <div class="invalid-feedback">
               Du måste fylla i ditt förnamn.
             </div>
           </div>
           <div class="form-group col-sm-12 col-md-6">
-            <label for="lastname">Efternamn*</label>
+            <label for="lastname">Efternamn<small>*</small></label>
             <input type="text" name="lastname" id="lastname" placeholder="Efternamn" class="form-control" required>
             <div class="invalid-feedback">
               Du måste fylla i ditt efternamn.
@@ -104,7 +104,7 @@
         </div>
         <div class="form-row">
           <div class="form-group col-sm-12 col-md-12">
-            <label for="address">Adress*</label>
+            <label for="address">Adress<small>*</small></label>
             <input type="text" name="address" id="address" placeholder="Adress" class="form-control" required>
             <div class="invalid-feedback">
               Du måste fylla i din adress.
@@ -113,21 +113,21 @@
         </div>
         <div class="form-row">
           <div class="form-group col-sm-4">
-            <label for="zipcode">Postnummer*</label>
+            <label for="zipcode">Postnummer<small>*</small></label>
             <input type="text" name="zipcode" id="zipcode" placeholder="Postnr" class="form-control" required>
             <div class="invalid-feedback">
               Du måste fylla i ditt postnummmer.
             </div>
           </div>
           <div class="form-group col-sm-4">
-            <label for="city">Ort*</label>
+            <label for="city">Ort<small>*</small></label>
             <input type="text" name="city" id="city" placeholder="Ort" class="form-control" required>
             <div class="invalid-feedback">
               Du måste fylla i din ort.
             </div>
           </div>
           <div class="form-group col-sm-4">
-            <label for="country">Land<sup>*</sup></label>
+            <label for="country">Land<small>*</small></label>
             <select id="country" name="country" class="custom-select" required>
               <option value="" selected>Välj land</option>
               <option value="Sverige">Sverige</option>
@@ -144,7 +144,7 @@
         </div>
         <div class="form-row">
           <div class="form-group col-12">
-            <label for="email">E-post*</label>
+            <label for="email">E-post<small>*</small></label>
             <input type="email" name="email" id="email" placeholder="E-post" class="form-control" required>
             <div class="invalid-feedback">
               Du måste fylla i din e-postadress.
@@ -157,14 +157,14 @@
               <div class="col">Välj antal strumpor per storlek<sup>*</sup></div>
             </div>
             <div class="form-group form-row">
-              <label for="count37" class="col-2 col-form-label">37-40</label>
-              <div class="col-4">
+              <label for="count37" class="col-3 col-form-label">37-40</label>
+              <div class="col-3">
                 <input type="number" name="count37" id="count37" value="0" class="form-control" required>
               </div>
             </div>
             <div class="form-group form-row">
-              <label for="count40" class="col-2 col-form-label">40-45</label>
-              <div class="col-4">
+              <label for="count40" class="col-3 col-form-label">40-45</label>
+              <div class="col-3">
                 <input type="number" name="count40" id="count40" value="0" class="form-control" required>
                 <div class="invalid-feedback">
                   Du måste välja något antal.

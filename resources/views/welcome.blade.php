@@ -39,7 +39,7 @@
             <div class="row no-gutters align-items-center h-100">
                 <div class="col text-center">
                   <p><a href="/om"><img src="img/logo.svg" width="80%"></a></p>
-                  <p><a href="/bidra" class="btn btn-light">Vi stödjer Barncancerfonden - ge ditt bidrag här</a></p>
+                  <p><a href="/bidra" class="btn btn-light">Vi stödjer Barncancerfonden<br>- ge ditt bidrag här</a></p>
                 </div>
             </div>
         </div>
