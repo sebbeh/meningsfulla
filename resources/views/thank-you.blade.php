@@ -15,6 +15,11 @@
             <p>Betalningen avbröts. Om du fortfarande är intresserad av att bidra till kampen mot barncancer ber vi dig försöka igen.</p>
             <p><a href="/bidra" class="btn btn-light">Försök igen</a></p>
             @break
+            @case("ERROR")
+            <h3>Betalningen misslyckades!</h3>
+            <p>Betalningen misslyckades p.g.a. ett okänt fel och ordern har inte processats. Om du fortfarande är intresserad av att bidra till kampen mot barncancer ber vi dig försöka igen.</p>
+            <p><a href="/bidra" class="btn btn-light">Försök igen</a></p>
+            @break
             @endswitch
         </div>
     </div>
