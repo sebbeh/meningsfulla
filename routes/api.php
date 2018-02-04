@@ -31,8 +31,10 @@ Route::prefix('v1')->group(function () {
             $order->swish_response = $request->getContent();
             $order->save();
 
-            Mail::to($order->email)->send(new Contribute($order));
-            Mail::to('kundtjanst@meningsfulla.se')->send(new Contribute($order));
+            if($order->status == "PAID") {
+              Mail::to($order->email)->send(new Contribute($order));
+              Mail::to('kundtjanst@meningsfulla.se')->send(new Contribute($order));
+            }
         });
     });
 });
