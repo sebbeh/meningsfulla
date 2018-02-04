@@ -16,9 +16,9 @@ class Contribute extends Mailable
      *
      * @return void
      */
-    public function __construct($request)
+    public function __construct($order)
     {
-        $this->request = $request;
+        $this->order = $order;
     }
 
     /**
@@ -30,7 +30,7 @@ class Contribute extends Mailable
     {
         return $this->view('emails.contribute')
                     ->with([
-                        'request' => $this->request,
+                        'order' => $this->order,
                     ]);
     }
 }

@@ -23,8 +23,8 @@ class OrderController extends Controller
         $order->city = $request->input('city');
         $order->country = $request->input('country');
         $order->contents = [
-            '37-40' => $request->input('count37'),
-            '40-45' => $request->input('count40'),
+            'count37' => $request->input('count37'),
+            'count40' => $request->input('count40'),
         ];
         $order->save();
 
