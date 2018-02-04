@@ -68,6 +68,11 @@
         {{ session('status') }}
       </div>
       @endif
+      @if (session('error'))
+      <div class="alert alert-danger">
+        {{ session('error') }}
+      </div>
+      @endif
       <form action="/bidra" class="needs-validation" method="POST" novalidate>
         {{ csrf_field() }}
         <input type="hidden" name="isphone" value="{{ $agent->isPhone() ? 'true' : 'false' }}">
@@ -152,27 +157,27 @@
           </div>
         </div>
         <div class="form-row align-items-center">
-          <div class="col">
+          <div class="col-md-6">
             <div class="form-row">
               <div class="col">Välj antal strumpor per storlek<sup>*</sup></div>
             </div>
             <div class="form-group form-row">
-              <label for="count37" class="col-3 col-form-label">37-40</label>
-              <div class="col-3">
-                <input type="number" name="count37" id="count37" value="0" class="form-control" required>
+              <label for="count37" class="col-6 col-md-3 col-form-label">37-40</label>
+              <div class="col-6 col-md-3">
+                <input type="number" name="count37" id="count37" value="0" min="0" class="form-control" required>
               </div>
             </div>
             <div class="form-group form-row">
-              <label for="count40" class="col-3 col-form-label">40-45</label>
-              <div class="col-3">
-                <input type="number" name="count40" id="count40" value="0" class="form-control" required>
+              <label for="count40" class="col-6 col-md-3 col-form-label">40-45</label>
+              <div class="col-6 col-md-3">
+                <input type="number" name="count40" id="count40" value="0" min="0" class="form-control" required>
                 <div class="invalid-feedback">
                   Du måste välja något antal.
                 </div>
               </div>
             </div>
           </div>
-          <div class="col text-center">
+          <div class="col-md-6 text-md-center">
             <h5><strong>Summa:</strong> <span id="sum">0</span>kr</h5>
           </div>
         </div>

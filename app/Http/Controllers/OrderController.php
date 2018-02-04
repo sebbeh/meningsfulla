@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
 use App\Order;
-use App\Mail\Contribute;
 
 class OrderController extends Controller
 {
@@ -65,6 +64,7 @@ class OrderController extends Controller
                 'currency' => $currency,
                 'message' => $message
             ],
+            'http_errors' => false,
             'cert' => env('SWISH_CERT'),
             'ssl_key' => env('SWISH_CERT_KEY'),
             'verify' => env('SWISH_CA')
@@ -79,6 +79,7 @@ class OrderController extends Controller
                 'currency' => $currency,
                 'message' => $message
             ],
+            'http_errors' => false,
             'cert' => env('SWISH_CERT'),
             'ssl_key' => env('SWISH_CERT_KEY'),
             'verify' => env('SWISH_CA')
@@ -87,9 +88,30 @@ class OrderController extends Controller
           $token = $result->getHeader('PaymentRequestToken')[0];
         }
 
-        Mail::to($request->input('email'))->send(new Contribute($request));
-        Mail::to('kundtjanst@meningsfulla.se')->send(new Contribute($request));
-        return redirect(url('/awaiting-payment/' . $payeePaymentReference))->with(['token' => $token,'callbackurl' => urlencode(url('/thank-you/' . $payeePaymentReference))]);
+        if($result->getStatusCode() == "201") {
+          $order->payment_id = basename(parse_url($result->getHeader('Location')[0], PHP_URL_PATH));
+          $order->save();
+          return redirect(url('/awaiting-payment/' . $payeePaymentReference))->with(['token' => $token,'callbackurl' => urlencode(url('/awaiting-payment/' . $payeePaymentReference))]);
+        } else
+        if($result->getStatusCode() == "422") {
+            $errors = $result->getBody();
+            $errormsg = "";
+            dd($errors);
+            foreach($errors as $error) {
+              switch($error->errorCode) {
+                  case "PA02":
+                      $errormsg = $errormsg . "Du måste välja minst ett paket strumpor. ";
+                      break;
+                  case "ACMT03":
+                      $errormsg = $errormsg . "Numret du angav är inte kopplat till Swish. ";
+                      break;
+              }
+            }
+            return back()->with(['error' => $errormsg])->withInput();
+        } else {
+            Log::info("Statuscode: ", ['errorCode' => $result->getStatusCode()]);
+            return back()->with(['error' => 'Något gick fel vid anslutningen till Swish. Vänligen försök igen senare.']);
+        }
     }
 
     public function read(Order $order) {

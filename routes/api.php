@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Order;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Contribute;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +30,9 @@ Route::prefix('v1')->group(function () {
             $order->status = $request->input('status');
             $order->swish_response = $request->getContent();
             $order->save();
+
+            Mail::to($request->input('email'))->send(new Contribute($request));
+            Mail::to('kundtjanst@meningsfulla.se')->send(new Contribute($request));
         });
     });
 });

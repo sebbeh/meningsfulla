@@ -12,6 +12,7 @@
 
         <!-- Custom CSS -->
         <link href="https://fonts.googleapis.com/css?family=Comfortaa|Open+Sans" rel="stylesheet">
+        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
         <style>
             .body {
                 font-family: 'Open Sans', sans-serif;

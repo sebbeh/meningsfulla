@@ -3,16 +3,19 @@
 <div class="container" style="padding-top: 58px;">
     <div class="row" style="margin-top: 1rem;">
         <div class="col">
-            @if($order[0]->status == 'PAID')
-            <h3>Tack för din gåva!</h3>
-            <p>{{ $order[0]->firstname . ' ' . $order[0]->lastname }}, vi har mottagit din gåva och kommer skicka ut din beställning så snart som möjligt.</p>
-            <p>En kopia på bekräftelsen har också skickats till: {{ $order[0]->email }}.</p>
-            <p>Ditt ordernummer är: {{ $order[0]->ordernumber }}.</p>
-            @elseif($order[0]->status != 'PAID')
-            <h3>Något gick snett!</h3>
-            <p>Något gick snett med din betalning. Vi ber dig försöka igen.</p>
+            @switch($order->status)
+            @case("PAID")
+            <h3>Tack för ditt bidrag!</h3>
+            <p>Vi har tagit emot ditt bidrag och kommer skicka ut din meningsfulla gåva inom kort.</p>
+            <p>En kopia på bekräftelsen har också skickats till: {{ $order->email }}.</p>
+            <p>Ditt ordernummer är: {{ $order->ordernumber }}.</p>
+            @break
+            @case("DECLINED")
+            <h3>Betalningen avbröts!</h3>
+            <p>Betalningen avbröts. Om du fortfarande är intresserad av att bidra till kampen mot barncancer ber vi dig försöka igen.</p>
             <p><a href="/bidra" class="btn btn-light">Försök igen</a></p>
-            @endif
+            @break
+            @endswitch
         </div>
     </div>
 </div>

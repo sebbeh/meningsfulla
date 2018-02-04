@@ -25,5 +25,6 @@
                 <a class="nav-link" href="/samarbetspartners">Samarbetspartners</a>
             </li>
         </ul>
+        <a href="https://www.instagram.com/meningsfulla.se/" class="text-light mr-2"><span class="fab fa-instagram fa-2x"></span></a> <a href="https://www.facebook.com/meningsfulla" class="text-light"><span class="fab fa-facebook fa-2x"></span></a>
     </div>
 </nav>

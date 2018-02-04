@@ -48,7 +48,32 @@ Route::get('/awaiting-payment/{id}', function($id) {
 });
 
 Route::get('/thank-you/{id}', function($id) {
-    $order = App\Order::where('ordernumber', $id)->get();
+    $order = App\Order::where('ordernumber', $id)->first();
+    /*$start_time = time();
+
+    $client = new Client();
+
+    while($order->status == "CREATED") {
+      $result = $client->request('GET','https://swicpc.bankgirot.se/swish-cpcapi/api/v1/paymentrequests/' . $order->payment_id, [
+        //'http_errors' => false,
+        'cert' => env('SWISH_CERT'),
+        'ssl_key' => env('SWISH_CERT_KEY'),
+        'verify' => env('SWISH_CA')
+      ]);
+
+      dd($result);
+
+      if($result->getStatusCode() == "200") {
+        $order->status = $result->input('status');
+        $order->swish_response = $result->getBody();
+        $order->save();
+      }
+
+      if($start_time - time() < 10000) {
+        $order->status = "TIMEOUT";
+        $order->save();
+      }
+    }*/
     return view('thank-you', ['order' => $order]);
 });
 
